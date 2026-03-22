@@ -1,0 +1,14 @@
+# Unit tests: build once, run on each container start.
+#   docker build -f Dockerfile.test -t circle-intersection-test .
+#   docker run --rm circle-intersection-test
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0-bookworm-slim
+WORKDIR /src
+
+COPY CircleIntersection.sln ./
+COPY src/ src/
+COPY tests/ tests/
+
+RUN dotnet restore CircleIntersection.sln
+
+CMD ["dotnet", "test", "tests/CircleIntersection.Tests/CircleIntersection.Tests.csproj", "-c", "Release", "--verbosity", "normal"]

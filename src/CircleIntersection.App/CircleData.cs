@@ -1,0 +1,18 @@
+namespace CircleIntersection;
+
+/// <summary>
+/// Represents a circle in the Cartesian plane.
+/// </summary>
+public readonly struct CircleData
+{
+    public CircleData(double centerX, double centerY, double radius)
+    {
+        CenterX = centerX;
+        CenterY = centerY;
+        Radius = radius;
+    }
+
+    public double CenterX { get; }
+    public double CenterY { get; }
+    public double Radius { get; }
+}
