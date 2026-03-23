@@ -40,7 +40,7 @@ public sealed class ConsoleUserInterface
 
     public static void PrintWelcomeBanner()
     {
-        Console.WriteLine("=== Пересечение окружностей (лаб. 1, вариант 11) ===");
+        Console.WriteLine("=== Пересечение окружностей (лаб. 1, вариант 22) ===");
         Console.WriteLine("Автор: Шунин Михаил Дмитриевич");
         Console.WriteLine("Задача: для двух окружностей на плоскости определить, есть ли общая");
         Console.WriteLine("        область положительной площади, и вычислить площадь пересечения.");
