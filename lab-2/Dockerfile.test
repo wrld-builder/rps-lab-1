@@ -1,0 +1,13 @@
+# Unit tests for Lab 2.
+#   docker compose run --rm test
+
+FROM mcr.microsoft.com/dotnet/sdk:8.0-bookworm-slim
+WORKDIR /src
+
+COPY MaxSumSubmatrix.sln ./
+COPY src/ src/
+COPY tests/ tests/
+
+RUN dotnet restore MaxSumSubmatrix.sln
+
+CMD ["dotnet", "test", "tests/MaxSumSubmatrix.Tests/MaxSumSubmatrix.Tests.csproj", "-c", "Release", "--verbosity", "normal"]

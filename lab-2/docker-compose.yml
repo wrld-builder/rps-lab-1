@@ -1,0 +1,20 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: max-sum-submatrix:local
+    stdin_open: true
+    tty: true
+    volumes:
+      - /Users:/Users
+      - /Volumes:/Volumes
+
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile.test
+    image: max-sum-submatrix-test:local
+    volumes:
+      - /Users:/Users
+      - /Volumes:/Volumes
