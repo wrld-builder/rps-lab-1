@@ -45,6 +45,12 @@ public static class CircleFileService
             throw new ArgumentException("Путь к файлу не может быть пустым.", nameof(filePath));
         }
 
+        string? directoryPath = Path.GetDirectoryName(filePath);
+        if (!string.IsNullOrWhiteSpace(directoryPath))
+        {
+            Directory.CreateDirectory(directoryPath);
+        }
+
         File.WriteAllText(filePath, content);
     }
 

@@ -6,9 +6,15 @@ services:
     image: circle-intersection:local
     stdin_open: true
     tty: true
+    volumes:
+      - /Users:/Users
+      - /Volumes:/Volumes
 
   test:
     build:
       context: .
       dockerfile: Dockerfile.test
     image: circle-intersection-test:local
+    volumes:
+      - /Users:/Users
+      - /Volumes:/Volumes
