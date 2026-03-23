@@ -1,7 +1,7 @@
 namespace StudentDirectory;
 
 /// <summary>
-/// Validates and persists student records.
+/// Проверяет и сохраняет записи о студентах.
 /// </summary>
 public interface IStudentService
 {

@@ -4,8 +4,8 @@ using System.Text;
 namespace MaxSumSubmatrix;
 
 /// <summary>
-/// Loads and saves matrices in text form.
-/// File format: first line contains "rows columns", next lines contain matrix rows.
+/// Загружает и сохраняет матрицы в текстовом формате.
+/// Формат файла: первая строка содержит "rows columns", следующие строки содержат строки матрицы.
 /// </summary>
 public static class MatrixFileService
 {

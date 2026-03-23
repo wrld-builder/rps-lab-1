@@ -1,7 +1,7 @@
 namespace ChainLine.WinForms;
 
 /// <summary>
-/// Stores user preferences persisted between application launches.
+/// Хранит пользовательские настройки, сохраняемые между запусками приложения.
 /// </summary>
 public sealed class UserPreferences
 {

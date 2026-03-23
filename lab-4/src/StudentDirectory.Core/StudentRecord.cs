@@ -3,7 +3,7 @@ using SQLite;
 namespace StudentDirectory;
 
 /// <summary>
-/// Represents one student stored in the application database.
+/// Представляет одного студента, хранящегося в базе данных приложения.
 /// </summary>
 public sealed class StudentRecord
 {

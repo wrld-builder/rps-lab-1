@@ -1,12 +1,22 @@
+// Назначение модуля: экспорт текущего списка студентов в CSV-файл.
+// Автор: Шунин Михаил Дмитриевич.
+// Алгоритм: последовательная генерация CSV с текстовыми полями в кавычках.
 using System.Text;
 
 namespace StudentDirectory;
 
 /// <summary>
-/// Writes the student list to a CSV file.
+/// Записывает список студентов в CSV-файл.
 /// </summary>
 public sealed class StudentExportService : IStudentExportService
 {
+    private const string HeaderLine = "Id,FullName,GroupName,Faculty,EnrollmentYear,Notes";
+
+    /// <summary>
+    /// Сохраняет список студентов в CSV-файл, выбранный пользователем.
+    /// Входные данные: целевой путь и список студентов в памяти.
+    /// Результат: текстовый файл, созданный на диске.
+    /// </summary>
     public async Task ExportAsync(string filePath, IReadOnlyList<StudentRecord> students, CancellationToken cancellationToken = default)
     {
         if (string.IsNullOrWhiteSpace(filePath))
@@ -24,7 +34,7 @@ public sealed class StudentExportService : IStudentExportService
         }
 
         StringBuilder builder = new();
-        builder.AppendLine("Id,FullName,GroupName,Faculty,EnrollmentYear,Notes");
+        builder.AppendLine(HeaderLine);
 
         foreach (StudentRecord student in students)
         {

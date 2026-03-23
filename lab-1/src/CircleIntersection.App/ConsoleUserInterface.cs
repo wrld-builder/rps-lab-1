@@ -3,7 +3,7 @@ using System.Globalization;
 namespace CircleIntersection;
 
 /// <summary>
-/// Console menus and prompts; no computational logic.
+/// Консольные меню и запросы ввода; вычислительная логика здесь отсутствует.
 /// </summary>
 public sealed class ConsoleUserInterface
 {

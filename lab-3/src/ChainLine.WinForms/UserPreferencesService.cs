@@ -3,7 +3,7 @@ using System.Text.Json;
 namespace ChainLine.WinForms;
 
 /// <summary>
-/// Reads and writes user preferences for the WinForms application.
+/// Считывает и сохраняет пользовательские настройки WinForms-приложения.
 /// </summary>
 public static class UserPreferencesService
 {

@@ -1,12 +1,23 @@
+// Назначение модуля: модальный диалог редактирования сущностей студентов для лабораторной работы №4.
+// Автор: Шунин Михаил Дмитриевич.
+// Алгоритм: сбор данных из интерфейса и передача проверенных значений обратно презентеру.
 using StudentDirectory;
 
 namespace StudentDirectory.WinForms;
 
 /// <summary>
-/// Dialog window for creating and editing student records.
+/// Диалоговое окно для создания и редактирования записей о студентах.
 /// </summary>
 public sealed class StudentEditorForm : Form, IStudentEditorView
 {
+    private const string DialogTitle = "Студент";
+    private const int DialogWidth = 520;
+    private const int DialogHeight = 360;
+    private const decimal MinimumEnrollmentYear = 1900m;
+    private const decimal MaximumEnrollmentYear = 3000m;
+    private const int NotesHeight = 90;
+    private const int ButtonWidth = 100;
+
     private readonly TextBox _fullNameTextBox;
     private readonly TextBox _groupTextBox;
     private readonly TextBox _facultyTextBox;
@@ -16,13 +27,13 @@ public sealed class StudentEditorForm : Form, IStudentEditorView
 
     public StudentEditorForm()
     {
-        Text = "Студент";
+        Text = DialogTitle;
         FormBorderStyle = FormBorderStyle.FixedDialog;
         StartPosition = FormStartPosition.CenterParent;
         MaximizeBox = false;
         MinimizeBox = false;
-        Width = 520;
-        Height = 360;
+        Width = DialogWidth;
+        Height = DialogHeight;
 
         TableLayoutPanel layout = new()
         {
@@ -42,8 +53,8 @@ public sealed class StudentEditorForm : Form, IStudentEditorView
         layout.Controls.Add(new Label { Text = "Год поступления:", AutoSize = true, Anchor = AnchorStyles.Left }, 0, 3);
         _enrollmentYearNumeric = new NumericUpDown
         {
-            Minimum = 1900,
-            Maximum = 3000,
+            Minimum = MinimumEnrollmentYear,
+            Maximum = MaximumEnrollmentYear,
             Value = DateTime.Now.Year,
             Width = 120,
             Anchor = AnchorStyles.Left | AnchorStyles.Right,
@@ -54,7 +65,7 @@ public sealed class StudentEditorForm : Form, IStudentEditorView
         _notesTextBox = new TextBox
         {
             Multiline = true,
-            Height = 90,
+            Height = NotesHeight,
             Dock = DockStyle.Fill,
             ScrollBars = ScrollBars.Vertical,
         };
@@ -65,8 +76,8 @@ public sealed class StudentEditorForm : Form, IStudentEditorView
             FlowDirection = FlowDirection.RightToLeft,
             Dock = DockStyle.Fill,
         };
-        Button okButton = new() { Text = "Сохранить", DialogResult = DialogResult.OK, Width = 100 };
-        Button cancelButton = new() { Text = "Отмена", DialogResult = DialogResult.Cancel, Width = 100 };
+        Button okButton = new() { Text = "Сохранить", DialogResult = DialogResult.OK, Width = ButtonWidth };
+        Button cancelButton = new() { Text = "Отмена", DialogResult = DialogResult.Cancel, Width = ButtonWidth };
         buttonsPanel.Controls.Add(okButton);
         buttonsPanel.Controls.Add(cancelButton);
         layout.Controls.Add(new Label(), 0, 5);
@@ -76,6 +87,9 @@ public sealed class StudentEditorForm : Form, IStudentEditorView
         CancelButton = cancelButton;
     }
 
+    /// <summary>
+    /// Возвращает текущие значения, введённые пользователем в диалоге.
+    /// </summary>
     public StudentRecordInput GetInput()
     {
         return new StudentRecordInput
@@ -89,6 +103,9 @@ public sealed class StudentEditorForm : Form, IStudentEditorView
         };
     }
 
+    /// <summary>
+    /// Заполняет элементы диалога данными существующей записи о студенте.
+    /// </summary>
     public void SetInput(StudentRecord student)
     {
         _studentId = student.Id;
@@ -104,6 +121,9 @@ public sealed class StudentEditorForm : Form, IStudentEditorView
         return base.ShowDialog(owner);
     }
 
+    /// <summary>
+    /// Показывает унифицированное сообщение об ошибке валидации.
+    /// </summary>
     public void ShowValidationError(string message)
     {
         MessageBox.Show(this, message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);

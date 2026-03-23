@@ -4,7 +4,7 @@ using System.Text;
 namespace MaxSumSubmatrix;
 
 /// <summary>
-/// Builds a human-readable report about the maximum-sum submatrix.
+/// Формирует понятный пользователю отчёт о подматрице с максимальной суммой.
 /// </summary>
 public static class SubmatrixReportFormatter
 {

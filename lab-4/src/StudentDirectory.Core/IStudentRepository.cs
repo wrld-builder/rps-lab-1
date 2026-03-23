@@ -1,7 +1,7 @@
 namespace StudentDirectory;
 
 /// <summary>
-/// Asynchronous access to student records stored in SQLite.
+/// Обеспечивает асинхронный доступ к записям о студентах, хранящимся в SQLite.
 /// </summary>
 public interface IStudentRepository
 {

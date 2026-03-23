@@ -1,7 +1,7 @@
 namespace MaxSumSubmatrix;
 
 /// <summary>
-/// Single place for diagnostic messages (unified error handling for the program).
+/// Единая точка вывода диагностических сообщений (унифицированная обработка ошибок программы).
 /// </summary>
 public static class ProgramErrorReporter
 {

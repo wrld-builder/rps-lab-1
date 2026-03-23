@@ -1,7 +1,7 @@
 namespace MaxSumSubmatrix;
 
 /// <summary>
-/// Describes the maximum-sum rectangular submatrix and its coordinates.
+/// Описывает прямоугольную подматрицу с максимальной суммой и её координаты.
 /// </summary>
 public sealed class SubmatrixResult
 {

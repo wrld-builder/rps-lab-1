@@ -1,7 +1,7 @@
 namespace StudentDirectory;
 
 /// <summary>
-/// Input model used for student creation and editing.
+/// Модель ввода, используемая для создания и редактирования студента.
 /// </summary>
 public sealed class StudentRecordInput
 {

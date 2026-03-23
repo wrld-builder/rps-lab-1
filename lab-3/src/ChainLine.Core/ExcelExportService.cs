@@ -1,12 +1,23 @@
+// Назначение модуля: экспорт исходных параметров и вычисленных значений в книгу Excel.
+// Автор: Шунин Михаил Дмитриевич.
+// Алгоритм: создание двух листов — для параметров и для значений функции.
 using ClosedXML.Excel;
 
 namespace ChainLine;
 
 /// <summary>
-/// Exports source parameters and computed values to an Excel workbook.
+/// Экспортирует исходные параметры и вычисленные значения в книгу Excel.
 /// </summary>
 public static class ExcelExportService
 {
+    private const string ParametersSheetName = "Parameters";
+    private const string ValuesSheetName = "Values";
+
+    /// <summary>
+    /// Экспортирует исходные данные и вычисленные результаты в файл xlsx.
+    /// Входные данные: целевой путь и ранее вычисленный результат функции.
+    /// Результат: книга Excel, сохранённая на диск.
+    /// </summary>
     public static void Export(string filePath, FunctionComputationResult result)
     {
         if (string.IsNullOrWhiteSpace(filePath))
@@ -23,8 +34,8 @@ public static class ExcelExportService
         }
 
         using XLWorkbook workbook = new();
-        IXLWorksheet parametersSheet = workbook.Worksheets.Add("Parameters");
-        IXLWorksheet valuesSheet = workbook.Worksheets.Add("Values");
+        IXLWorksheet parametersSheet = workbook.Worksheets.Add(ParametersSheetName);
+        IXLWorksheet valuesSheet = workbook.Worksheets.Add(ValuesSheetName);
 
         FillParametersSheet(parametersSheet, result);
         FillValuesSheet(valuesSheet, result);

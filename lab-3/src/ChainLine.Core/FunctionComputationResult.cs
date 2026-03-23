@@ -1,7 +1,7 @@
 namespace ChainLine;
 
 /// <summary>
-/// Contains the points, warnings and metadata of one computation run.
+/// Содержит точки, предупреждения и метаданные одного вычислительного запуска.
 /// </summary>
 public sealed class FunctionComputationResult
 {

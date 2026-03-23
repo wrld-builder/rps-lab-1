@@ -1,23 +1,23 @@
 namespace CircleIntersection;
 
 /// <summary>
-/// Computes the area of intersection of two circles in the plane.
-/// Author: Mikhail Shunin (course assignment).
+/// Вычисляет площадь пересечения двух окружностей на плоскости.
+/// Автор: Михаил Шунин (учебное задание).
 /// </summary>
 public static class CircleIntersectionCalculator
 {
     private const double Epsilon = 1e-9;
 
     /// <summary>
-    /// Computes intersection area of two circles. Radii must be positive.
+    /// Вычисляет площадь пересечения двух окружностей. Радиусы должны быть положительными.
     /// </summary>
-    /// <param name="centerX1">First circle center X.</param>
-    /// <param name="centerY1">First circle center Y.</param>
-    /// <param name="radius1">First circle radius.</param>
-    /// <param name="centerX2">Second circle center X.</param>
-    /// <param name="centerY2">Second circle center Y.</param>
-    /// <param name="radius2">Second circle radius.</param>
-    /// <returns>Intersection area (zero if circles only touch or are disjoint).</returns>
+    /// <param name="centerX1">Координата X центра первой окружности.</param>
+    /// <param name="centerY1">Координата Y центра первой окружности.</param>
+    /// <param name="radius1">Радиус первой окружности.</param>
+    /// <param name="centerX2">Координата X центра второй окружности.</param>
+    /// <param name="centerY2">Координата Y центра второй окружности.</param>
+    /// <param name="radius2">Радиус второй окружности.</param>
+    /// <returns>Площадь пересечения (ноль, если окружности только касаются или не пересекаются).</returns>
     public static double ComputeIntersectionArea(
         double centerX1,
         double centerY1,
@@ -52,7 +52,7 @@ public static class CircleIntersectionCalculator
     }
 
     /// <summary>
-    /// Returns true if the two disks have a region of positive area in common.
+    /// Возвращает true, если два круга имеют общую область положительной площади.
     /// </summary>
     public static bool HaveOverlappingArea(
         double centerX1,

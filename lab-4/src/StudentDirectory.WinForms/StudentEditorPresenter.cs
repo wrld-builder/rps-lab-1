@@ -3,7 +3,7 @@ using StudentDirectory;
 namespace StudentDirectory.WinForms;
 
 /// <summary>
-/// Presenter for the student add/edit dialog.
+/// Презентер диалога добавления и редактирования студента.
 /// </summary>
 public sealed class StudentEditorPresenter
 {

@@ -1,7 +1,7 @@
 namespace ChainLine;
 
 /// <summary>
-/// Stores the input data required to evaluate the chain line.
+/// Хранит исходные данные, необходимые для вычисления цепной линии.
 /// </summary>
 public sealed class FunctionParameters
 {

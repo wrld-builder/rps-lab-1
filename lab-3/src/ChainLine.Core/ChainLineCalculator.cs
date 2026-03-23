@@ -1,12 +1,24 @@
+// Назначение модуля: вычисление значений цепной линии для лабораторной работы №3.
+// Автор: Шунин Михаил Дмитриевич.
+// Алгоритм: прямое вычисление y = a * cosh(x / a) на равномерной сетке.
 namespace ChainLine;
 
 /// <summary>
-/// Calculates values of the chain line y = a / 2 * (e^(x / a) + e^(-x / a)).
+/// Вычисляет значения цепной линии y = a / 2 * (e^(x / a) + e^(-x / a)).
 /// </summary>
 public static class ChainLineCalculator
 {
     private const double Epsilon = 1e-9;
+    private const string EmptyGraphMessage =
+        "На заданном интервале не удалось построить график функции. Попробуйте изменить границы построения.";
+    private const string DegenerateGraphMessage =
+        "График вырождается в точку. Увеличьте интервал или уменьшите шаг построения.";
 
+    /// <summary>
+    /// Вычисляет все точки графика на заданном интервале.
+    /// Входные данные: проверенные границы интервала, шаг и коэффициент.
+    /// Результат: точки графика, признаки предупреждений и метаданные, нужные интерфейсу.
+    /// </summary>
     public static FunctionComputationResult Compute(FunctionParameters parameters)
     {
         ArgumentNullException.ThrowIfNull(parameters);
@@ -14,8 +26,7 @@ public static class ChainLineCalculator
         List<FunctionPoint> points = BuildPoints(parameters);
         if (points.Count == 0)
         {
-            throw new InvalidOperationException(
-                "На заданном интервале не удалось построить график функции. Попробуйте изменить границы построения.");
+            throw new InvalidOperationException(EmptyGraphMessage);
         }
 
         bool isDegenerateToPoint = points.Count == 1;
@@ -23,7 +34,7 @@ public static class ChainLineCalculator
 
         if (isDegenerateToPoint)
         {
-            warningMessage = "График вырождается в точку. Увеличьте интервал или уменьшите шаг построения.";
+            warningMessage = DegenerateGraphMessage;
         }
 
         return new FunctionComputationResult(parameters, points, isDegenerateToPoint, warningMessage);
@@ -69,7 +80,9 @@ public static class ChainLineCalculator
     }
 
     /// <summary>
-    /// Evaluates the chain line function at a specified point.
+    /// Вычисляет значение функции цепной линии в заданной точке.
+    /// Входные данные: ненулевой коэффициент a и точка x.
+    /// Результат: значение функции y.
     /// </summary>
     public static double Evaluate(double coefficientA, double x)
     {

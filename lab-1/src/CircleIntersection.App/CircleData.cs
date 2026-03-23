@@ -1,7 +1,7 @@
 namespace CircleIntersection;
 
 /// <summary>
-/// Represents a circle in the Cartesian plane.
+/// Представляет окружность на декартовой плоскости.
 /// </summary>
 public readonly struct CircleData
 {

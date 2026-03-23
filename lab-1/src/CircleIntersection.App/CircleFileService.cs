@@ -3,14 +3,14 @@ using System.Globalization;
 namespace CircleIntersection;
 
 /// <summary>
-/// Loads and saves circle data from/to text files (one circle per line: cx cy r).
+/// Загружает и сохраняет данные окружностей в текстовых файлах (одна окружность на строку: cx cy r).
 /// </summary>
 public static class CircleFileService
 {
     private const int ExpectedTokenCount = 3;
 
     /// <summary>
-    /// Reads two circles from a file: first line circle 1, second line circle 2.
+    /// Считывает две окружности из файла: первая строка — первая окружность, вторая строка — вторая.
     /// </summary>
     public static (CircleData First, CircleData Second) LoadTwoCircles(string filePath)
     {
@@ -36,7 +36,7 @@ public static class CircleFileService
     }
 
     /// <summary>
-    /// Writes analysis result as text.
+    /// Сохраняет результат анализа в текстовый файл.
     /// </summary>
     public static void SaveResult(string filePath, string content)
     {

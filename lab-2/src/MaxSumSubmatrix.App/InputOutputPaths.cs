@@ -1,7 +1,7 @@
 namespace MaxSumSubmatrix;
 
 /// <summary>
-/// Holds user-selected paths for file input and output.
+/// Хранит выбранные пользователем пути к входным и выходным файлам.
 /// </summary>
 public sealed class InputOutputPaths
 {

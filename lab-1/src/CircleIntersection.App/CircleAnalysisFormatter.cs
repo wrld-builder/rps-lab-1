@@ -4,7 +4,7 @@ using System.Text;
 namespace CircleIntersection;
 
 /// <summary>
-/// Builds human-readable reports for circle intersection analysis (UI-independent).
+/// Формирует понятные пользователю отчёты по анализу пересечения окружностей (независимо от интерфейса).
 /// </summary>
 public static class CircleAnalysisFormatter
 {

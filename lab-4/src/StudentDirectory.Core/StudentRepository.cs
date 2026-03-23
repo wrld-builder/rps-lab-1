@@ -3,7 +3,7 @@ using SQLite;
 namespace StudentDirectory;
 
 /// <summary>
-/// SQLite-backed asynchronous repository for student records.
+/// Асинхронный репозиторий записей о студентах на базе SQLite.
 /// </summary>
 public sealed class StudentRepository : IStudentRepository
 {

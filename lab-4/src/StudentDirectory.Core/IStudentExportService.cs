@@ -1,7 +1,7 @@
 namespace StudentDirectory;
 
 /// <summary>
-/// Exports student lists to an external text file.
+/// Экспортирует списки студентов во внешний текстовый файл.
 /// </summary>
 public interface IStudentExportService
 {

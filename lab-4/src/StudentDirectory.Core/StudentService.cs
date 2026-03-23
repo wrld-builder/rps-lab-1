@@ -1,7 +1,10 @@
+// Назначение модуля: проверка данных студентов и координация операций предметной области.
+// Автор: Шунин Михаил Дмитриевич.
+// Алгоритм: проверка полей с последующим асинхронным сохранением через репозиторий.
 namespace StudentDirectory;
 
 /// <summary>
-/// Application service for student operations.
+/// Прикладной сервис для операций со студентами.
 /// </summary>
 public sealed class StudentService : IStudentService
 {
@@ -18,6 +21,11 @@ public sealed class StudentService : IStudentService
         return _repository.GetAllAsync(cancellationToken);
     }
 
+    /// <summary>
+    /// Проверяет пользовательский ввод и сохраняет соответствующую запись о студенте.
+    /// Входные данные: редактируемая модель студента из пользовательского интерфейса.
+    /// Результат: сохранённая сущность студента.
+    /// </summary>
     public async Task<StudentRecord> SaveAsync(StudentRecordInput input, CancellationToken cancellationToken = default)
     {
         ArgumentNullException.ThrowIfNull(input);

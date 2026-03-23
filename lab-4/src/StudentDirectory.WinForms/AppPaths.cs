@@ -1,7 +1,7 @@
 namespace StudentDirectory.WinForms;
 
 /// <summary>
-/// Resolves file system locations used by the application.
+/// Определяет пути файловой системы, используемые приложением.
 /// </summary>
 public static class AppPaths
 {

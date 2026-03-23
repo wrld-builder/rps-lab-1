@@ -1,8 +1,8 @@
 namespace MaxSumSubmatrix;
 
 /// <summary>
-/// Finds a rectangular submatrix with the maximum possible sum.
-/// Uses the O(columns^2 * rows) reduction to one-dimensional Kadane scans.
+/// Находит прямоугольную подматрицу с максимально возможной суммой.
+/// Использует сведение задачи к одномерным проходам алгоритма Кадане со сложностью O(columns^2 * rows).
 /// </summary>
 public static class MaximumSumSubmatrixFinder
 {

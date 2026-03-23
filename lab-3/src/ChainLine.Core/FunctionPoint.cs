@@ -1,7 +1,7 @@
 namespace ChainLine;
 
 /// <summary>
-/// Represents one calculated point of the function graph.
+/// Представляет одну вычисленную точку графика функции.
 /// </summary>
 public sealed class FunctionPoint
 {

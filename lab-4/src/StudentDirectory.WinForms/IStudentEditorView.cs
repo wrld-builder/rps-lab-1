@@ -3,7 +3,7 @@ using StudentDirectory;
 namespace StudentDirectory.WinForms;
 
 /// <summary>
-/// Abstraction over the add/edit student dialog.
+/// Абстракция над диалогом добавления и редактирования студента.
 /// </summary>
 public interface IStudentEditorView
 {

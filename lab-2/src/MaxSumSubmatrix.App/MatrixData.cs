@@ -1,7 +1,7 @@
 namespace MaxSumSubmatrix;
 
 /// <summary>
-/// Stores a rectangular matrix of real numbers used by the program.
+/// Хранит прямоугольную матрицу вещественных чисел, используемую программой.
 /// </summary>
 public sealed class MatrixData
 {

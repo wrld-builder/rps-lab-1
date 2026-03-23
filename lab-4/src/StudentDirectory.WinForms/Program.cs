@@ -1,3 +1,6 @@
+// Назначение модуля: настройка внедрения зависимостей и запуск лабораторной работы №4.
+// Автор: Шунин Михаил Дмитриевич.
+// Используемые алгоритмы: настройка контейнера Autofac и запуск MVP-приложения.
 using Autofac;
 using StudentDirectory;
 
@@ -16,6 +19,7 @@ internal static class Program
             .As<IStudentRepository>()
             .SingleInstance();
         builder.RegisterType<StudentService>().As<IStudentService>().SingleInstance();
+        builder.RegisterType<StudentImportService>().As<IStudentImportService>().SingleInstance();
         builder.RegisterType<StudentExportService>().As<IStudentExportService>().SingleInstance();
         builder.RegisterType<StudentListForm>().As<IStudentListView>().AsSelf();
         builder.RegisterType<StudentEditorForm>().As<IStudentEditorView>();
